@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="POST">
+        <h2  value="{{ username }}">Hi! {{ username }}</h2>
+        <input name="username" value="{{ username }}" style="display:none;"/>
+        <p>Do you code?</p>
+        <input type="checkbox" name="code"/>
+        <p>If so, in what languages?</p>
+        <p>Python</p>
+        <input type="checkbox" name="python" value="Python"/>
+        <p>Java</p>
+        <input type="checkbox" name="python" value="Java"/>
+        <p>C++</p>
+        <input type="checkbox" name="python" value="C++"/>
+        <p>C</p>
+        <input type="checkbox" name="python" value="C"/>
+        <p>Can you truck a tractor-trailer?</p>
+        <input type="checkbox" name="trucking" value="Yes"/>
+        <p>Are you good at managing a team?</p>
+        <input type="checkbox" name="manager" value="Yes"/>
+        <p>What about teaching?</p>
+        <input type="checkbox" name="teach" value="Yes"/>
+        <p>Like to cook?</p>
+        <input type="checkbox" name="cook" value="Yes"/>
+        <p>Have an IT certification?</p>
+        <input type="checkbox" name="IT" value="Yes"/>
+        <p>Are you good with people?</p>
+        <input type="checkbox" name="support" value="Yes"/>
+        <p>What about delivery?</p>
+        <input type="checkbox" name="delivery" value="Yes">
+
+        <p>Finally, would you rather work part-time or full-time (you can also select both!).</p>
+        <p>Full-Time</p>
+        <input type="checkbox" name="part-time" value="pt"/>
+        <p>Part-Time</p>
+        <input type="checkbox" name="full-time" value="ft"/>
+        <input type="submit" formaction="/createaccount"/>
+
+    </form>
+</body>
+</html>

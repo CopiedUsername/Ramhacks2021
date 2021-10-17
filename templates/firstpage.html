@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GENESIS</title>
+<link id="decoration" rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+
+<style type="text/css">
+body {
+background-image: url({{ url_for('static', filename='heroimg.jpg')}});
+background-size: contain;
+min-height: 100%;
+margin: 2em 5%;
+font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1{
+text-align: center;
+color: black;
+margin-top:30px;
+}
+
+h2 {
+text-align: center;
+color: black;
+margin-top:30px;
+font-family: Verdana, Geneva, sans-serif;
+font-size: 1em;
+}
+
+.hero{
+background-color: black;
+text-align: center;
+background-size: contain;
+min-height: 100%;
+}
+
+table, td, th {
+background-color:white;<!--#6abadeba -->
+background-size: cover;
+border: 0px solid black;
+font-weight: bold;
+}
+	table {
+		border: 1px solid black;
+		border-radius: 2px;
+	}
+
+</style>
+</head>
+
+<body>
+<!-- Main Container -->
+<div class="container">
+  <!-- Navigation -->
+ <header> <a href="FIRST PAGE">
+    <h4 class="logo"><strong>GENESIS</strong></h4>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#">{{ username }}</a></li>
+        <li><a href="/logout">LOGOUT</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+ <section class="hero" id="hero">
+     <form method="POST">
+      <p class="tagline">What is your desired job?</p>
+	  <textarea name="search" rows="2" cols="100" maxlength="400" placeholder=" "></textarea>
+      <input type="submit" value="Search!"/>
+     </form>
+  </section>
+  <!-- About Section -->
+<form method="POST">
+    <span id="page" styles="display:none;">{{ jobpage }}</span>
+</form>
+    {% for row in rows %}
+        <table id="table" style="width:100%;">
+
+          <form id="test" method="POST">
+              <tr>
+                <th style="text-align:left; font-size:2em">{{ row["title"] }}</th>
+                <th/>
+                <th style="text-align:right;">{{ row["salary"] }}</th>
+              </tr>
+              <tr>
+                <td>{{ row["job_type"] }}</td>
+                <td></td>
+                <td style="text-align:right;">{{ row["location"] }}</td>
+              </tr>
+              <tr>
+                <td>{{ row["short_description"] }}</td>
+              </tr>
+              <tr>
+                <td>Met qualities: {{ row["matches"] }}</td>
+				  <td></td>
+				  <td style="float:right; margin-bottom:20px; margin-right:20px;"><button type="submit">CHECK IT OUT</button></td>
+                  <td style="display:none;"><input name="job" value="{{ row["row_id"] }}" style="display:none;"/></td>
+              </tr>
+
+              
+          </form>
+
+        </table>
+    {% endfor %}
+
+    <div style="display:flex">
+
+            {% for i in range(1,pages+1)  %}
+                <form method="POST" action="/">
+                    <input name="jobpage" value="{{ i }}" style="display:none;"/>
+                    <button type="submit" value="{{ i }}">{{ i }}</button>
+                </form>
+            {% endfor %}
+
+    </div>
+
+
+<br>
+
+
+
+  <section class="banner">
+    <h2 class="parallax">GENESIS&nbsp;</h2>
+    <p class="parallax_description">Our goal is to help connect you to your dream job, so we revolutionized the way you apply&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+  </section>
+
+
+  <!-- Footer Section -->
+  <section class="footer_banner" id="contact">
+    <h2 class="hidden">Footer Banner Section </h2>
+	  <p class="hero_header"><h2><strong>CONTACT US</strong></h2></p>
+    <p class="contactus_description">&nbsp;</p>
+	<h2><strong> (804) 828-3925</strong></h2>
+	  <h2><strong> engineering@vcu.edu </strong></h2>
+    <h2><strong>601 West Main Street Box 843068 Richmond, Virginia 23284-3068</strong></h2>
+
+
+  </section>
+  <!-- Copyrights Section -->
+  <div class="copyright">&copy;<strong>GENESIS 2021 LLC</strong></div>
+</div>
+<!-- Main Container Ends -->
+</body>
+</html>

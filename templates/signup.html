@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          {% for message in messages %}
+              <div id="message" class="alert alert-warning alert dismissable" role="alert">
+                <button type="button" class="dismiss" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+                <span class="notice">{{message}}</span>
+              </div>
+          {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <h1>Welcome to Genesis!</h1>
+    <h3>To start, please enter your desired username and password</h3>
+    <form  method="POST">
+        <input name="username" type="text" placeholder="Username" required="true"/>
+        <input name="password" type="text" placeholder="Password" required="true"/>
+        <input formaction="/signup" type="submit"/>
+    </form>
+</body>
+</html>

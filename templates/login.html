@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>login</title>
+<!--https://www.c-sharpcorner.com/article/creating-a-simple-login-page-using-html-and-css/ -->
+	<link id="decoration" rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+
+ <style>
+  body  {
+    margin: 0;
+    padding: 0;
+    background-color:#6abadeba;
+    font-family: source-sans-pro;
+}
+.login{
+        width: 382px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 16vh;
+        background: grey;
+        border-radius: 15px ;
+
+}
+h2{
+    text-align: center;
+    color: #090f0c;
+    padding: 20px;
+	font-size:50px;
+
+}
+label{
+
+    color: #090f0c;
+    font-size: 17px;
+	font-weight:bold;
+	text-align: center;
+}
+#Uname{
+	text-align: center;
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+#Pass{
+	text-align: center;
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+
+}
+#log{
+	text-align: center;
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: black;
+
+
+}
+span{
+
+    color: white;
+    font-size: 17px;
+}
+a{
+    text-decoration: none;
+    background-color: grey;
+}
+
+  </style>
+</head>
+<body>
+ <h2><strong>Login</strong></h2>
+    <div class="login">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          {% for message in messages %}
+              <div id="message" class="alert alert-warning alert dismissable" role="alert">
+                <button type="button" class="dismiss" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+                <span class="notice">{{message}}</span>
+              </div>
+          {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form id="login" method="POST">
+        <label>
+		User Name
+
+        </label>
+		<br>
+        <input type="text" name="Uname" id="Uname" placeholder="Username">
+        <br><br>
+        <label>Password
+           </label>
+		<br>
+        <input type="Password" name="Pass" id="Pass" placeholder="Password">
+        <br>
+		<br>
+		<br>
+        <button formaction="/login" name="log" id="log" value="Log In Here"/>
+        <br>
+		<br>
+        <input type="checkbox" id="check">
+        <span>Remember me</span>
+        <br><br>
+    </form>
+        <p>Don't have an account? Sign up <a href="/signup">here!</a></p>
+</div>
+
+</body>
+</html>

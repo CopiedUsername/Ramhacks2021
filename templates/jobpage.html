@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for row in rows %}
+        <!-- feel free to structure this data how you please! Whenever you want to reference the data use the format
+        that is inside the p tags, minus the hard-coded text :P -->
+        <p>Title: {{ row["title"] }}</p>
+        <p>Long Description: {{ row["description"] }}</p>
+        <p>Short Description: {{ row["short_description"] }}</p>
+        <p>Job Type: {{ row["job_type"] }}</p>
+        <p>Salary: {{ row["salary"] }}</p>
+        <p>Location: {{ row["location"] }}</p>
+        <p>Benefits: {{ row["benefits"] }}</p>
+        <p>Qualifications: {{ row["qualifications"] }}</p>
+        <p>Keywords: {{ row["keywords"] }}</p>
+        <p>Matches: {{ row["matches"] }}</p>
+        <button type="button">Apply Now!</button>
+
+    {% endfor %}
+
+</body>
+</html>
